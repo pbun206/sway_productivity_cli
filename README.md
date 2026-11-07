@@ -4,7 +4,7 @@ This project names Sway workspaces in the format of num:name which each numbers 
 
 | Command | Description |
 | --- | --- |
-| `spc switch-to <num>` | Goes to Sway workspace of the number, while presenting a wellness screen (with a 60 second cooldown)|
+| `spc switch-to <num>` | Goes to Sway workspace of the number, while presenting a wellness screen (with a 90 second cooldown)|
 | `spc rename` | Uses `qtai`'s "echo" collection to rename workspaces fast |
 | `spc swap-with <num>` | Swap numbers of the current Sway workspace and the Sway workspace of the number without renaming the whole thing |
 
