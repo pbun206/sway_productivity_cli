@@ -7,6 +7,7 @@ use anyhow::Result;
 use anyhow::anyhow;
 use swayipc::Connection;
 
+// Process to rename
 pub fn rename() -> Result<()> {
     let mut connection = Connection::new()?;
     let new_name = get_new_name()?;

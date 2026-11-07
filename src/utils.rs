@@ -15,13 +15,13 @@ pub fn get_current_workspace(connection: &mut Connection) -> Result<Workspace> {
 
 pub fn find_workspace_of_number(
     connection: &mut Connection,
-    index: i32,
+    index: u32,
 ) -> Result<Option<Workspace>> {
     let workspaces = connection
         .get_workspaces()
         .map_err(|_| anyhow!("get workspaces ipc failed"))?;
 
-    Ok(workspaces.iter().find(|w| w.num == index).cloned())
+    Ok(workspaces.iter().find(|w| w.num == index as i32).cloned())
 }
 
 // Rename doesn't not contian index
@@ -41,7 +41,7 @@ pub fn msg_rename_name(
 pub fn msg_change_index(
     connection: &mut Connection,
     workspace: &Workspace,
-    new_index: i32,
+    new_index: u32,
 ) -> Result<()> {
     match workspace.name.find(':') {
         Some(i) => msg_rename_full(
@@ -49,6 +49,7 @@ pub fn msg_change_index(
             workspace,
             &(new_index.to_string() + ":" + &workspace.name[i + 1..]),
         ),
+        // new workspaces do not have a ":"
         None => msg_rename_full(connection, workspace, &(new_index.to_string())),
     }?;
     Ok(())
@@ -61,7 +62,7 @@ pub fn msg_rename_full(
     new_name: &str,
 ) -> Result<()> {
     match connection.run_command(format!(
-        "rename workspace {} to {}",
+        "rename workspace \"{}\" to \"{}\"",
         workspace.name, new_name
     )) {
         Ok(_) => Ok(()),
@@ -69,7 +70,7 @@ pub fn msg_rename_full(
     }
 }
 
-pub fn msg_switch(connection: &mut Connection, index: i32) -> Result<()> {
+pub fn msg_switch(connection: &mut Connection, index: u32) -> Result<()> {
     match connection.run_command(format!("workspace number {}", index)) {
         Ok(_) => Ok(()),
         Err(_) => Err(anyhow!("switch command failed")),

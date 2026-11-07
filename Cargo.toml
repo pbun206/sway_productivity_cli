@@ -6,8 +6,17 @@ edition = "2024"
 [dependencies]
 anyhow = "1.0.104"
 clap = { version = "4.6.7", features = ["derive"] }
+cosmic-text = "0.19.0"
+dirs = "7.0.0"
+env_logger = "0.11.11"
+ordered-float = "5.5.1"
+rand = "0.10.3"
+ron = "0.12.3"
+serde = { version = "1.0.229", features = ["derive"] }
+smithay-client-toolkit = "0.21.1"
 swayipc = "4.0.0"
+wayland-client = "0.31.15"
 
- [[bin]]
-  name = "spc"
-  path = "src/main.rs"
+[[bin]]
+ name = "spc"
+ path = "src/main.rs"
