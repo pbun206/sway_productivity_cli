@@ -32,7 +32,7 @@ pub fn switch_to(index: u32) -> Result<()> {
         && let Ok(elapsed) = modified.elapsed()
         && elapsed < Duration::from_secs(60)
     {
-        return Ok(()); 
+        return Ok(());
     }
 
     window()?;
