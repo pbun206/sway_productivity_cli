@@ -1,4 +1,4 @@
-A set of commands which allow using Sway easier! 
+A set of (hacky) commands which allow using Sway easier! 
 
 This project names Sway workspaces in the format of num:name which each numbers is unique to the entire WM (in other words, no duplicates between monitors). This is due to how Sway works while good practice of having a clear status state for workspaces.
 
@@ -9,9 +9,10 @@ This project names Sway workspaces in the format of num:name which each numbers 
 | `spc swap-with <num>` | Swap numbers of the current Sway workspace and the Sway workspace of the number without renaming the whole thing |
 
 
-This project requires `qtai` with an "echo" collection for renaming.
+![Dmenu with renaming options](./assets/qtai.png)
+This project requires [qtai](https://github.com/pbun206/qtai) with an "echo" collection for renaming. qtai is super powerful, I recommend it a lot (no bias)! 
 
-Here is a preview of the welness screen.
+Here is a preview of the wellness screen.
 
 ![A black screen with sigh instructions and quote](./assets/preview.png)
 For switch-to wellness screen, write a config file at `~/.config/spc/splashes.ron` in the following format:
