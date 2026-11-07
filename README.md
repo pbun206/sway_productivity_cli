@@ -13,7 +13,7 @@ This project requires `qtai` with an "echo" collection for renaming.
 
 Here is a preview of the welness screen.
 
-[!A black screen with sigh instructions and quote](/home/nyalun/Syncthing/professional-programming-projects/sway_productivity_cli/assets/preview.png)
+![A black screen with sigh instructions and quote](/home/nyalun/Syncthing/professional-programming-projects/sway_productivity_cli/assets/preview.png)
 For switch-to wellness screen, write a config file at `~/.config/spc/splashes.ron` in the following format:
 
 ```ron
