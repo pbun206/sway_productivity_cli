@@ -15,6 +15,23 @@ Here is a preview of rofi with `spc rename`!
 
 This project requires [qtai](https://github.com/pbun206/qtai) with an "echo" collection for all the options. qtai is super powerful, I recommend it a lot (no bias)!
 
+Here is an example of my config:
+
+```toml
+default_menu = "rofi -dmenu -i"
+
+[collections."echo"]
+# default runner is optional since spc forces echo no matter what
+# default_runner = 'echo $1'
+"read" = "read"
+"keepass" = "keepass"
+"mail" = "mail"
+"uw" = "uw"
+"cook" = "cook"
+"draw" = "draw"
+"compose" = "compose"
+"plan" = "plan"
+```
 ## Wellness screen
 Here is a preview of the wellness screen.
 
