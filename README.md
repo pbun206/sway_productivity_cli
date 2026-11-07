@@ -8,10 +8,14 @@ This project names Sway workspaces in the format of num:name which each numbers 
 | `spc rename` | Uses `qtai`'s "echo" collection to rename workspaces fast |
 | `spc swap-with <num>` | Swap numbers of the current Sway workspace and the Sway workspace of the number without renaming the whole thing |
 
+## Rename 
+Here is a preview of rofi with `spc rename`!
 
 ![Dmenu with renaming options](./assets/qtai.png)
-This project requires [qtai](https://github.com/pbun206/qtai) with an "echo" collection for renaming. qtai is super powerful, I recommend it a lot (no bias)! 
 
+This project requires [qtai](https://github.com/pbun206/qtai) with an "echo" collection for all the options. qtai is super powerful, I recommend it a lot (no bias)!
+
+## Wellness screen
 Here is a preview of the wellness screen.
 
 ![A black screen with sigh instructions and quote](./assets/preview.png)
@@ -27,6 +31,9 @@ For switch-to wellness screen, write a config file at `~/.config/spc/splashes.ro
 )
 ```
 
+## Why
+
+This work is a design experimentation for myself, as I often mess up my window management. I realize that workspace lack clear statuses. Because I always dealt with different tasks with little routine, I needed a way to label my workspaces on the spot. Furthermore, I often have too much screen time to be honest, so I decided something to stop me from checking my emails every hour would be helpful. This was the result. 
 
 ## Installing
 
