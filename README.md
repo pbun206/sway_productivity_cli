@@ -26,3 +26,18 @@ For switch-to wellness screen, write a config file at `~/.config/spc/splashes.ro
 )
 ```
 
+
+## Installing
+
+```bash
+# git clone
+git clone https://github.com/pbun206/sway_productivity_cli.git
+
+# get into the directory
+cd sway_productivity_cli
+
+# make sure you have cargo installed
+cargo install --path . 
+
+# building might take a while :p
+```
