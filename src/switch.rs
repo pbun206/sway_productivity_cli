@@ -30,7 +30,7 @@ pub fn switch_to(index: u32) -> Result<()> {
     if let Ok(metadata) = file.metadata()
         && let Ok(modified) = metadata.modified()
         && let Ok(elapsed) = modified.elapsed()
-        && elapsed < Duration::from_secs(60)
+        && elapsed < Duration::from_secs(90)
     {
         return Ok(());
     }

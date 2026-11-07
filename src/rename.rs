@@ -11,6 +11,9 @@ use swayipc::Connection;
 pub fn rename() -> Result<()> {
     let mut connection = Connection::new()?;
     let new_name = get_new_name()?;
+    if new_name.is_empty() {
+        return Ok(());
+    }
     let current_workspace = get_current_workspace(&mut connection)?;
     msg_rename_name(&mut connection, &current_workspace, &new_name)
 }
@@ -24,10 +27,11 @@ fn get_new_name() -> Result<String> {
         .stdout(Stdio::piped())
         .spawn()
         .map_err(|_| anyhow!("qtai command failed"))?;
-    String::from_utf8(
+    let output = String::from_utf8(
         qtai.wait_with_output()
             .map_err(|err| anyhow!("Failed to wait for output: {}", err))?
             .stdout,
     )
-    .map_err(|err| anyhow!("Output is not utf8: {}", err))
+    .map_err(|err| anyhow!("Output is not utf8: {}", err))?;
+    Ok(output.trim().to_string())
 }
