@@ -10,9 +10,6 @@ use swayipc::Connection;
 use crate::{utils::msg_switch, window::window};
 
 pub fn switch_to(index: u32) -> Result<()> {
-    let mut sway_connection = Connection::new()?;
-    msg_switch(&mut sway_connection, index)?;
-
     let runtime_dir = dirs::runtime_dir().unwrap_or_else(std::env::temp_dir);
     let lock_path = runtime_dir.join("spc_splash.lock");
 
@@ -32,9 +29,13 @@ pub fn switch_to(index: u32) -> Result<()> {
         && let Ok(elapsed) = modified.elapsed()
         && elapsed < Duration::from_secs(90)
     {
-        return Ok(());
+        // within the cooldown: switch succeeds quietly
+        let mut sway_connection = Connection::new()?;
+        return msg_switch(&mut sway_connection, index);
     }
 
+    // cooldown has lapsed: block the switch, show the splash instead,
+    // and reset the cooldown so the next 90s are free again
     window()?;
 
     file.set_modified(SystemTime::now())?;
